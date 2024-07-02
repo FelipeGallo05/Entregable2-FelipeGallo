@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <section>
+            <div>
+                <h1 class="titulo">Analisis de tiros NBA</h1>
+            </div>
+            <div class="explicacion">
+                <div>
+                    <p>Las zonas a evaluar seran las siguientes: </p>
+                </div>
+                <div>
+                    <img class='shot-chart'src="/imgs/Esquina Izquierda.png" alt="">
+                </div>
+            </div>
+        </section>
+        
+
+        <div class="zona">
+            <div>
+                <h2>Agregar nueva sesion de tiro o partido</h2>
+                <form id="formulario">
+                    <label for="zona">Zona: </label>
+                    <input type="zona" id='zonaDeTiro'placeholder="Ingrese la zona de tiro ">
+                    <label for="intentos" >Tiros intentados: </label>
+                    <input type="intentos" id='tirosIntentados' placeholder="Ingrese la cantidad de tiros intentados ">
+                    <label for="metidos">Tiros encestados: </label>
+                    <input type="metidos" id="tirosEncestados" placeholder="Ingrese la cantidad de tiros encestados">
+                    <button id="submit">Ingresar</button>
+                </form>
+            </div>
+        </div>
+        
+        <div id="sesiones"></div>
+    </main>
+
+    
+    
+    <script src="script.js"></script>
+</body>
+</html>
