@@ -65,10 +65,9 @@ h1{
     display: flex;
     flex-direction: row;
     gap: 10px;
-    flex-wrap: wrap;
     width: 200px;
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px;
 }
 
 .abajoDelPromedio{

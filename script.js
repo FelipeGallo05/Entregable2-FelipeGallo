@@ -75,17 +75,18 @@ submit.addEventListener('click', () => {
 
 function crearDiv(){
     sesiones.forEach(el => {
-        sesionesDeTiro.innerHTML += `
+        sesionesDeTiro.innerHTML += `<div>
             <h3> Zona : ${el.zona}</h3>
             <p>Tiros Intentados: ${el.tirosIntentados}</p>
             <p>Tiros Encestados: ${el.tirosEncestados}</p>
             <p>Porcentaje (%): ${el.porcentaje}</p>
+            </div>
         `
     })
 }
 
 function colorDeFondo(){
-    
+    sesionesDeTiro.classList.remove("abajoDelPromedio", "intermedioBajoPromedio", "promedio", "intermedioArribaPromedio", "arribaDelPromedio")
     sesiones.forEach(el =>{
         console.log(el.porcentaje)
         if( 0 <= el.porcentaje && el.porcentaje < 30 ){
