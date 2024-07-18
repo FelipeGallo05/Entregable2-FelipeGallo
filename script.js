@@ -54,13 +54,15 @@ submit.addEventListener('click', () => {
     const tirosEncestados = tirosEncestadosIngresada.value
     let existeZona = zonas.includes(zona)
     if (!existeZona){
-        alert('Ingresa una zona valida.') //No se como hacer para editar el input de zona y que se ponga rojo
+        alert('Ingresa una zona valida.')//No se como hacer para editar el input de zona y que se ponga rojo
+        return
     }else{
         localStorage.setItem("Zona", JSON.stringify(zona))
     }
     let tirosEsPosible = Number(tirosEncestados) > Number(tirosIntentados)
     if(tirosEsPosible){
         alert('Encestaste mas tiros de los que tiraste?! Imposible...')//Lo mismo en este caso, por eso uso alert
+        return
     }else{
         localStorage.setItem("Tiros Intentados", JSON.stringify(tirosIntentados))
         localStorage.setItem("Tiros Encestados", JSON.stringify(tirosEncestados))
@@ -75,7 +77,7 @@ submit.addEventListener('click', () => {
 
 function crearDiv(){
     sesiones.forEach(el => {
-        sesionesDeTiro.innerHTML += `<div>
+        sesionesDeTiro.innerHTML += `<div class="${colorDeFondo()} sesionesDeTiro">
             <h3> Zona : ${el.zona}</h3>
             <p>Tiros Intentados: ${el.tirosIntentados}</p>
             <p>Tiros Encestados: ${el.tirosEncestados}</p>
@@ -86,19 +88,16 @@ function crearDiv(){
 }
 
 function colorDeFondo(){
-    sesionesDeTiro.classList.remove("abajoDelPromedio", "intermedioBajoPromedio", "promedio", "intermedioArribaPromedio", "arribaDelPromedio")
-    sesiones.forEach(el =>{
-        console.log(el.porcentaje)
-        if( 0 <= el.porcentaje && el.porcentaje < 30 ){
-            sesionesDeTiro.classList.add("abajoDelPromedio")
-        }else if (30<= el.porcentaje && el.porcentaje < 40){
-            sesionesDeTiro.classList.add("intermedioBajoPromedio")
-        }else if (40 <= el.porcentaje && el.porcentaje < 50){
-            sesionesDeTiro.classList.add("promedio")
-        }else if(50<= el.porcentaje && el.porcentaje < 55){
-            sesionesDeTiro.classList.add("intermedioArribaPromedio")
-        }else if (el.porcentaje >= 55){
-            sesionesDeTiro.classList.add("arribaDelPromedio")
-        }
-    })
-}
+    let porcentaje = JSON.parse(localStorage.getItem("Porcentaje"))
+    if( 0 <= porcentaje && porcentaje < 30 ){
+            return "abajoDelPromedio"
+    }else if (30<= porcentaje && porcentaje < 40){
+            return "intermedioBajoPromedio"
+    }else if (40 <= porcentaje && porcentaje < 50){
+            return "promedio"
+    }else if(50<= porcentaje && porcentaje < 55){
+            return "intermedioArribaPromedio"
+    }else if (porcentaje >= 55){
+            return "arribaDelPromedio"
+    }
+    }
