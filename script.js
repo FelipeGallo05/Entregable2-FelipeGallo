@@ -1,4 +1,4 @@
-const zonas = ['Esquina Izquierda', 'Ala Izquierda', 'Centro', 'Ala Derecha', 'Esquina Derecha' , 'Zona Media Izquierda', 'Zona Media Centro', 'Zona Media Derecha', 'Zona Pintada']
+const zonas = ['Esquina izquierda', 'Ala izquierda', 'Centro', 'Ala Derecha', 'Esquina Derecha' , 'Zona media izquierda', 'Zona media centro', 'Zona media derecha', 'Zona pintada']
 
 let sesiones = []
 
